@@ -19,6 +19,7 @@ class Comment
     private $author;
 
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Article', inversedBy: 'comments')]
+    #[ORM\JoinColumn(onDelete: "CASCADE")]
     private $article;
 
     public function getId(): ?int

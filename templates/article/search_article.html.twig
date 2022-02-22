@@ -1,5 +1,5 @@
 {% extends "base.html.twig" %}
-{% block title %}HOME{% endblock %}
+{# {% block title %}Article trouvé{% endblock %}
 {% block body %}
 <div style="background-color: #019b9f;">
     <h1 class="text-center"><span style="color : #ffd333;">Thing</span><span style="color : #d90368;">Tronics</span></h1>
@@ -7,12 +7,10 @@
 </div>
 <div class="d-flex flex-row justify-content-evenly" style="background-color: #c44b90; padding: 40px;">
     <a href="/article/create"><button type="submit" class="btn btn-primary">Créer</button></a>
-    {# <form class="d-flex">
+    <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <a href="/article/search/{{text}}"><button class="btn btn-outline-success" type="submit">Search</button></a>
-    </form> #}
-    {{ form(form) }}
-
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 <a href="/article/create"><button type="submit" class="btn btn-primary">Connecté</button></a>
 {% else %}
@@ -56,4 +54,4 @@
         <h3 style="color: #ffffff">NewsLetter</h3>
     </div>
 </div>
-{% endblock %}
+{% endblock %} #}

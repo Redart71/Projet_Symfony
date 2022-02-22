@@ -7,6 +7,8 @@ use App\Form\ArticleType;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,8 +57,25 @@ class ArticleController extends AbstractController
         $repository = $doctrine->getRepository(Article::class);
         $articles = $repository->findAll();
 
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('article_search_text'))
+            ->add('query', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Entrez un mot-clé'
+                ]
+            ])
+            ->add('recherche', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-success'
+                ]
+            ])
+            ->getForm();
+
         return $this->render('article/read_all.html.twig', [
-            "articles" => $articles
+            "articles" => $articles,
+            "form" => $form->createView()
         ]);
     }
     #[Route('/article/read/{id}', name: 'read_article')]

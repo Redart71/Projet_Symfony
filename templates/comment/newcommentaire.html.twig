@@ -6,6 +6,6 @@
     {{ form_start(form, {"attr": {"novalidate":"novalidate"}}) }}
         {{ form_row(form.content) }}
         {{ form_row(form.author) }}
-        <a href="/article/read"><button type="submit" class="btn btn-primary">Comment</button></a>
+        <a href="article/read/{{articleId}}"><button type="submit" class="btn btn-primary">Comment</button></a>
     {{ form_end(form) }}
 {% endblock %}
