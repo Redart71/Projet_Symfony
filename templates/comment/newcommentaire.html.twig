@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un commentaire{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {"attr": {"novalidate":"novalidate"}}) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.author) }}
+        <a href="/article/read"><button type="submit" class="btn btn-primary">Comment</button></a>
+    {{ form_end(form) }}
+{% endblock %}

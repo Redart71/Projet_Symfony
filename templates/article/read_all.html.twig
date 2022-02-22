@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+{% block title %}HOME{% endblock %}
+{% block body %}
+<div style="background-color: #019b9f;">
+    <h1 class="text-center"><span style="color : #ffd333;">Thing</span><span style="color : #d90368;">Tronics</span></h1>
+    <img src="/Images/cover.jpg" class="img-fluid" alt="">
+</div>
+<div class="d-flex flex-row justify-content-evenly" style="background-color: #c44b90; padding: 40px;">
+<a href="/article/create"><button type="submit" class="btn btn-primary">Créer</button></a>
+<a href="/article/create"><button type="submit" class="btn btn-primary">Créer</button></a>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<a href="/article/create"><button type="submit" class="btn btn-primary">Connecté</button></a>
+{% else %}
+<a href="/login"><button type="submit" class="btn btn-primary">Connexion</button></a>
+{% endif %}
+</div>
+<div class="d-flex flex-wrap justify-content-evenly" style="padding: 40px; background-color: #c44b90; padding-bottom: 60px;">
+{% for article in articles %}
+        <div class="card col-6" style="width: 20rem; border: none;">
+            <img src="{{ asset('uploads/brochures/' ~ article.picture) }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{article.title}}</h5>
+                <p class="card-text">{{article.content}}</p>
+                <div class="d-flex f-row justify-content-evenly">
+                    <a href="/article/read/{{article.id}}" class="btn btn-primary">Lire plus</a>
+                    <a href="/article/edit/{{article.id}}" class="btn btn-warning">Modifier</a>
+                    <a href="/article/delete/{{article.id}}" class="btn btn-danger">Supprimer</a>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+</div>
+<div class="d-flex flex-row justify-content-evenly" style="background-color: #000000; padding: 40px;">
+    <div>
+        <div>
+            <h3><span style="color : #ffd333;">Thing</span><span style="color : #d90368;">Tronics</span></h3>
+            <p style="color: #ffffff">Lorem Ipsum is simply dummy text<br/>
+            of the printing  and typesetting industry.<br/>
+            Lorem Ipsum has been the industry's standard <br/>
+            dummy text ever since the 1500s.<br/>
+            </p>
+        </div>
+        <div>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+        </div>
+    </div>
+    <div>
+        <h3 style="color: #ffffff">NewsLetter</h3>
+    </div>
+</div>
+{% endblock %}

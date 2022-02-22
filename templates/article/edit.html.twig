@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block title %}Modifier l'article{% endblock %}
+{% block body %}
+    {{ form_start(form, {"attr": {"novalidate":"novalidate"}}) }}
+        {{ form_row(form.picture)}}
+        {{ form_row(form.title) }}
+        {{ form_row(form.content) }}
+        <a href="/article/read-all"><button type="submit" class="btn btn-primary">Modifier</button></a>
+    {{ form_end(form)}}
+{% endblock %}

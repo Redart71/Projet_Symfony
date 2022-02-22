@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% block title %}Article{% endblock %}
+{% block body %}
+        <div class="text-center">
+            <img src="..." class="card-img-top" alt="...">
+                <h5>{{article.title}}</h5>
+                <p>{{article.content}}</p>
+                    <a href="/comment/create"><button type="submit" class="btn btn-primary">Comment</button></a>
+                    <a href="/article/read-all" class="btn btn-primary">Back</a>
+        </div>
+
+
+
+{% endblock %}
